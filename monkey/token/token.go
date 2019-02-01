@@ -7,13 +7,18 @@ type Token struct {
 	Literal string
 }
 
+var keyword = map[string]TokenType{
+	"fn":  FUNCTION,
+	"let": LET,
+}
+
 const (
 	ILLEGSL = "ILLEGSL"
 	EOF     = "EOF"
 
 	// 識別子・リテラル
-	IDEN = "IDEN"
-	INT  = "INT"
+	IDENT = "IDENT"
+	INT   = "INT"
 
 	// 演算子
 	ASSIGN = "="
@@ -32,3 +37,10 @@ const (
 	FUNCTION = "FUNCTION"
 	LET      = "LET"
 )
+
+func LookupIdent(ident string) TokenType {
+	if tok, ok := keyword[ident]; ok {
+		return tok
+	}
+	return IDENT
+}
