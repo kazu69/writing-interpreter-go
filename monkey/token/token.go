@@ -13,7 +13,7 @@ var keyword = map[string]TokenType{
 }
 
 const (
-	ILLEGSL = "ILLEGSL"
+	ILLEGAL = "ILLEGAL"
 	EOF     = "EOF"
 
 	// 識別子・リテラル

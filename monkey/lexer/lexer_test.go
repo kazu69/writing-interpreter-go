@@ -1,8 +1,9 @@
 package lexer
 
 import (
-	"monkey/token"
 	"testing"
+
+	"monkey/token"
 )
 
 func TestNextToken(t *testing.T) {
@@ -22,7 +23,7 @@ let result = add(five, ten);
 	}{
 		{token.LET, "let"},
 		{token.IDENT, "five"},
-		{token.ASSIGN, "="},
+		{token.INT, "5"},
 		{token.SEMICOLON, ";"},
 		{token.LET, "let"},
 		{token.IDENT, "ten"},
