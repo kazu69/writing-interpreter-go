@@ -3,10 +3,10 @@ package repl
 import (
 	"bufio"
 	"fmt"
-	"go/token"
 	"io"
 
 	"github.com/kazu69/golang-interpreter/monkey/lexer"
+	"github.com/kazu69/golang-interpreter/monkey/token"
 )
 
 const PROMPT = ">"
@@ -24,7 +24,7 @@ func Start(in io.Reader, out io.Writer) {
 		line := scanner.Text()
 		l := lexer.New(line)
 
-		// 改行が車で繰り返す
+		// 改行がまでで繰り返す
 		for tok := l.NextToken(); tok.Type != token.EOF; tok = l.NextToken() {
 			fmt.Print("%+v\n", tok)
 		}
