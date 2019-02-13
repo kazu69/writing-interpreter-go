@@ -18,11 +18,11 @@ let foobar = 838383;
 
 	program := p.ParseProgram()
 	if program == nil {
-		t.Fatal("ParseProgram() returned nil")
+		t.Fatalf("ParseProgram() returned nil")
 	}
 
 	if len(program.Statements) != 3 {
-		t.Fatal("program.Statements does not contain 3 statements. get=%d", len(program.Statements))
+		t.Fatalf("program.Statements does not contain 3 statements. got=%d", len(program.Statements))
 	}
 
 	tests := []struct {
@@ -43,23 +43,23 @@ let foobar = 838383;
 
 func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
 	if s.TokenLiteral() != "let" {
-		t.Error("s.TokenLiteral not `let` . got=%q", s.TokenLiteral())
+		t.Errorf("s.TokenLiteral not `let` . got=%q", s.TokenLiteral())
 		return false
 	}
 
 	letStmt, ok := s.(*ast.LetStatement)
 	if !ok {
-		t.Error("s not *ast.LetStatement. got=%q", s)
+		t.Errorf("s not *ast.LetStatement. got=%T", s)
 		return false
 	}
 
 	if letStmt.Name.Value != name {
-		t.Error("letStmt.Name.Value not '%s'. got=%q", name, letStmt.Name.Value)
+		t.Errorf("letStmt.Name.Value not '%s'. got=%s", name, letStmt.Name.Value)
 		return false
 	}
 
 	if letStmt.Value.TokenLiteral() != name {
-		t.Error("letStmt.Value.TokenLiteral() not '%s'. got=%q", name, letStmt.Value.TokenLiteral())
+		t.Errorf("letStmt.Value.TokenLiteral() not '%s'. got=%s", name, letStmt.Value.TokenLiteral())
 		return false
 	}
 
