@@ -71,8 +71,8 @@ func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
 		return false
 	}
 
-	if letStmt.Value.TokenLiteral() != name {
-		t.Errorf("letStmt.Value.TokenLiteral() not '%s'. got=%s", name, letStmt.Value.TokenLiteral())
+	if letStmt.Name.TokenLiteral() != name {
+		t.Errorf("letStmt.Value.TokenLiteral() not '%s'. got=%s", name, letStmt.Name.TokenLiteral())
 		return false
 	}
 
@@ -92,7 +92,7 @@ return 993322;
 	program := p.ParseProgram()
 	checkParserErrors(t, p)
 
-	if len(program.Statements) != 1 {
+	if len(program.Statements) != 3 {
 		t.Fatalf("program.Statements does not contain 3 statements. got %d", len(program.Statements))
 	}
 
