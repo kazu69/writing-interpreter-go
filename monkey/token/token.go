@@ -21,14 +21,14 @@ const (
 	ILLEGAL = "ILLEGAL"
 	EOF     = "EOF"
 
-	// 識別子・リテラル
-	IDENT = "IDENT"
-	INT   = "INT"
+	// 識別子・リテラル Identifiers + literals
+	IDENT = "IDENT" // add, foobar, x, y, ...
+	INT   = "INT"   // 1343456
 
-	// 演算子
+	// 演算子 Operators
 	ASSIGN   = "="
 	PLUS     = "+"
-	MINUS    = "="
+	MINUS    = "-"
 	BANG     = "!"
 	ASTERISK = "!"
 	SLASH    = "/"
@@ -36,16 +36,19 @@ const (
 	LT = "<"
 	GT = ">"
 
-	// デリミタ
+	// デリミタ Delimiters
 	COMMA     = ","
 	SEMICOLON = ";"
 
-	LPAREN = "("
-	RPAREN = ")"
-	LBRACE = "{"
-	RBRACE = "}"
+	LPAREN  = "("
+	RPAREN  = ")"
+	LBRACE  = "{"
+	RBRACE  = "}"
+	LBRAKET = "["
+	RBRAKET = "]"
+	COLON   = ":"
 
-	// キーワード
+	// キーワード Keywords
 	FUNCTION = "FUNCTION"
 	LET      = "LET"
 	TRUE     = "TRUE"
